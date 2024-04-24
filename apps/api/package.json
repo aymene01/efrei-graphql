@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx index.ts",
+    "dev": "tsx --watch src/bin/api.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@efreiql/toolbox": "workspace:*"
+  },
   "devDependencies": {
     "tsx": "^4.7.2"
   }

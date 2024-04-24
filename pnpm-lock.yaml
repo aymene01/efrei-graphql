@@ -16,6 +16,10 @@ importers:
         version: 1.13.2
 
   apps/api:
+    dependencies:
+      '@efreiql/toolbox':
+        specifier: workspace:*
+        version: link:../../packages/toolbox
     devDependencies:
       tsx:
         specifier: ^4.7.2
