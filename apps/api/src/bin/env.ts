@@ -1,8 +1,8 @@
 import { getListenAddr, getString, getBoolean, getNumber } from '@efreiql/toolbox'
 
-export const GRAPHQL_SCHEMA_PATH = process.cwd() + '/node_modules/@keom/graphql/schema.graphql'
+export const GRAPHQL_SCHEMA_PATH = process.cwd() + '/node_modules/@efreiql/graphql/schema.graphql'
 export const ENVIRONMENT = getString('ENVIRONMENT', 'local')
-export const DATABASE_URL = getString('DATABASE_URL', 'postgres://user:password@localhost:5432/database')
+export const DATABASE_URL = getString('DATABASE_URL', 'postgres://user:password@localhost:5000/database')
 export const DATABASE_CONNECTION_POOL_SIZE = getNumber('DATABASE_CONNECTION_POOL_SIZE', 20)
 export const DATABASE_QUERY_TIMEOUT = getNumber('DATABASE_QUERY_TIMEOUT', 20)
 export const LISTEN_ADDR = getListenAddr('LISTEN_ADDR', 'localhost:8080')

@@ -11,9 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@efreiql/toolbox": "workspace:*"
+    "@apollo/server": "^4.10.4",
+    "@efreiql/toolbox": "workspace:*",
+    "@efreiql/graphql": "workspace:*",
+    "@prisma/client": "^5.13.0",
+    "cors": "^2.8.5",
+    "prisma": "^5.13.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "tsx": "^4.7.2"
   }
 }
