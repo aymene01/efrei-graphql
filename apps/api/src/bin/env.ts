@@ -1,4 +1,11 @@
+import dotenv from 'dotenv'
 import { getListenAddr, getString, getBoolean, getNumber } from '@efreiql/toolbox'
+
+import { config } from '@/constant/config'
+
+dotenv.config({
+  path: config.ENV_PATH,
+})
 
 export const GRAPHQL_SCHEMA_PATH = process.cwd() + '/node_modules/@efreiql/graphql/schema.graphql'
 export const ENVIRONMENT = getString('ENVIRONMENT', 'local')

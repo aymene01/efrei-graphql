@@ -1,10 +1,12 @@
+import fs from 'fs/promises'
+
 import { Logger, logger, waitForSignal } from '@efreiql/toolbox'
+
 import { connectDatabase } from '@/database'
 import { createBusiness } from '@/business'
 import { createIamService } from '@/iam/createIamService'
-import * as Env from './env'
 import { createServer } from '@/graphql/createServer'
-import fs from 'fs/promises'
+import * as Env from './env'
 
 const main = async (logger: Logger) => {
   const database = connectDatabase({
