@@ -1,8 +1,12 @@
-import { getClient } from '@/lib/urql'
+'use client'
+
+import { useQuery } from 'urql'
 import { SAY_HELLO } from '@/queries'
 
-export default async function Home() {
-  const { data, error } = await getClient().query(SAY_HELLO, {})
+export default function client() {
+  const [{ data, fetching, error }] = useQuery({ query: SAY_HELLO })
+
+  if (fetching) return <div>loading...</div>
 
   if (error) return <div>error</div>
 

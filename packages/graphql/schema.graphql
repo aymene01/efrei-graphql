@@ -1,7 +1,7 @@
-type Response {
-  message: String
+type SayHelloResponse {
+  message: String!
 }
 
 type Query {
-  sayHello: Response
+  sayHello: SayHelloResponse!
 }

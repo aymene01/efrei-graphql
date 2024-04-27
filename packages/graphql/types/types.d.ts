@@ -16,10 +16,10 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  sayHello?: Maybe<Response>;
+  sayHello?: Maybe<SayHelloResponse>;
 };
 
-export type Response = {
-  __typename?: 'Response';
+export type SayHelloResponse = {
+  __typename?: 'SayHelloResponse';
   message?: Maybe<Scalars['String']['output']>;
 };

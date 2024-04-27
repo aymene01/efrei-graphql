@@ -72,7 +72,7 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Query: ResolverTypeWrapper<{}>;
-  Response: ResolverTypeWrapper<Response>;
+  SayHelloResponse: ResolverTypeWrapper<SayHelloResponse>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
 };
 
@@ -80,21 +80,21 @@ export type ResolversTypes = {
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output'];
   Query: {};
-  Response: Response;
+  SayHelloResponse: SayHelloResponse;
   String: Scalars['String']['output'];
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  sayHello?: Resolver<Maybe<ResolversTypes['Response']>, ParentType, ContextType>;
+  sayHello?: Resolver<Maybe<ResolversTypes['SayHelloResponse']>, ParentType, ContextType>;
 };
 
-export type ResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['Response'] = ResolversParentTypes['Response']> = {
+export type SayHelloResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['SayHelloResponse'] = ResolversParentTypes['SayHelloResponse']> = {
   message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
   Query?: QueryResolvers<ContextType>;
-  Response?: ResponseResolvers<ContextType>;
+  SayHelloResponse?: SayHelloResponseResolvers<ContextType>;
 };
 
