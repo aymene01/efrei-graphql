@@ -12,14 +12,16 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.10.4",
-    "@efreiql/toolbox": "workspace:*",
     "@efreiql/graphql": "workspace:*",
+    "@efreiql/toolbox": "workspace:*",
     "@prisma/client": "^5.13.0",
     "cors": "^2.8.5",
+    "lodash": "^4.17.21",
     "prisma": "^5.13.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
+    "@types/lodash": "^4.17.0",
     "tsx": "^4.7.2"
   }
 }

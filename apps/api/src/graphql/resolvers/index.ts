@@ -1,7 +1,8 @@
-export const resolvers = {
+import { Resolvers } from '@efreiql/graphql'
+import * as queries from './queries'
+
+export const resolvers: Resolvers = {
   Query: {
-    sayHello: () => ({
-      message: 'Hello World!',
-    }),
+    sayHello: queries.sayHello,
   },
 }

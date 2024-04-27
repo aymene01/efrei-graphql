@@ -40,7 +40,6 @@ const main = async (logger: Logger) => {
 
   await database.start()
   await server.start()
-  logger.info('API server started')
   await waitForSignal(['SIGINT', 'SIGTERM'])
   logger.info('API server stopping')
   await server.stop()
