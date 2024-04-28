@@ -1,21 +1,17 @@
 import http from 'node:http'
 import { promisify } from 'node:util'
 
+import cors from 'cors'
+import express from 'express'
+import { partial } from 'lodash'
+
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4'
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer'
-import cors from 'cors'
-import express, { Response, Request, NextFunction } from 'express'
-import { partial } from 'lodash'
 
 import { resolvers } from './resolvers'
-import { Context, Options, Server } from './types'
 import { createContext } from './context'
-
-const logger = (req: Request, res: Response, next: NextFunction) => {
-  console.log('Request URL:', req)
-  next()
-}
+import { Context, Options, Server } from './types'
 
 export const createServer = async (opts: Options): Promise<Server> => {
   const app = express()
@@ -40,8 +36,6 @@ export const createServer = async (opts: Options): Promise<Server> => {
       context: async ({ req, res }) => context(req, res),
     }),
   )
-
-  app.use(logger)
 
   httpServer.keepAliveTimeout = opts.keepAliveTimeout
 
