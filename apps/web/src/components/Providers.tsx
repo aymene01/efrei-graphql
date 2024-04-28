@@ -1,4 +1,5 @@
 import UrqlProvider from './Urql'
+import { ClerkProvider } from '@clerk/nextjs'
 
 export default function Providers({
   children,
@@ -6,8 +7,10 @@ export default function Providers({
   children: React.ReactNode
 }>) {
   return (
-    <UrqlProvider>
-      <body>{children}</body>
-    </UrqlProvider>
+    <ClerkProvider>
+      <UrqlProvider>
+        <body>{children}</body>
+      </UrqlProvider>
+    </ClerkProvider>
   )
 }
