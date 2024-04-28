@@ -1,10 +1,13 @@
 import { getClient } from '@/lib/urql'
 import { SAY_HELLO } from '@/queries'
+import { extractGraphqlError } from '@/utils/extractGraphqlError'
 
 export default async function Home() {
   const { data, error } = await getClient().query(SAY_HELLO, {})
 
-  if (error) return <div>error</div>
+  if (error) {
+    return <h1>{extractGraphqlError(error)}</h1>
+  }
 
   return (
     <div className="flex w-full h-screen justify-center items-center">

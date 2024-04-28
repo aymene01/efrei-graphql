@@ -1,7 +1,93 @@
-type SayHelloResponse {
+scalar Date
+
+"""
+A generic error type with a message field
+"""
+type Error {
   message: String!
 }
 
+"""
+A generic response type with a message field
+"""
+interface ResponseMessage {
+  message: String!
+}
+
+"""
+A response type for the sayHello query
+"""
+type SayHelloResponse implements ResponseMessage {
+  message: String!
+}
+
+"""
+A response type for authentication mutations
+"""
+type AuthPayload {
+  token: String
+  user: User
+}
+
+"""
+A type for validation errors
+"""
+type ValidationError {
+  field: String!
+  message: String!
+}
+
+"""
+A type representing a user
+"""
+type User {
+  id: ID!
+  email: String!
+  name: String
+  password: String!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+"""
+Input type for creating a user
+"""
+input CreateUserInput {
+  email: String!
+  name: String
+  password: String!
+  passwordConfirmation: String!
+}
+
+"""
+Input type for updating a user
+"""
+input UpdateUserInput {
+  id: ID!
+  email: String
+  name: String
+  password: String
+}
+
 type Query {
+  """
+  A simple query to say hello
+  """
   sayHello: SayHelloResponse!
+  # Add more queries as needed
+}
+
+union AuthResult = AuthPayload | ValidationError
+
+type Mutation {
+  """
+  Authenticate a user with email and password
+  """
+  login(email: String!, password: String!): AuthResult
+
+  """
+  Register a new user with the provided input
+  """
+  register(input: CreateUserInput!): AuthResult
+  # Add more mutations as needed
 }
